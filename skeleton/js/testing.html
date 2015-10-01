@@ -1,0 +1,26 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+<button>Toggle Annoying Handler</button>
+
+<p>Try to hover over me!</p>
+
+<script>
+(function () {
+  var enabled = false;
+
+  $("button").on("click", function () {
+    if (!enabled) {
+      $("p").on("mouseover", hoverCallback);
+      enabled = true;
+    } else {
+      // remove listener
+      $("p").off("mouseover", hoverCallback);
+      enabled = false;
+    }
+  });
+
+  function hoverCallback() {
+    alert("YOU ARE HOVERING OVER ME!");
+  }
+})();
+</script>
